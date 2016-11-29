@@ -99,6 +99,10 @@ def post_share(request, post_id):
                                                     'sent': sent})
 
 
+def home_page(request):
+    return render(request, 'blog/Homepage.html')
+
+
 """def post_search(request):
     form = SearchForm()
     if 'query' in request.GET:

@@ -13,12 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from blog.views import home_page
 from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
+    url(r'^$', home_page, name='home'),
     # url(r'^sitemap\.xml$',
     #     sitemap,
     #     {'sitemaps': sitemaps},
