@@ -1,0 +1,10 @@
+dj-database-url==0.4.1
+Django==1.10.3
+django-taggit==0.21.3
+gunicorn==19.6.0
+haystack==0.36
+Markdown==2.6.7
+psycopg2==2.6.2
+pytz==2016.7
+whitenoise==3.2.2
+winappdbg==1.5
