@@ -43,10 +43,10 @@ class PostListView(ListView):
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post,
-                                   status='published',
-                                   publish__year=year,
-                                   publish__month=month,
-                                   publish__day=day)
+                             status='published',
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
 
     # List of active comments for this post
     comments = post.comments.filter(active=True)
@@ -88,8 +88,10 @@ def post_share(request, post_id):
             # Form fields passed validation
             cd = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
-            subject = '{} ({}) recommends you reading "{}"'.format(cd['name'], cd['email'], post.title)
-            message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
+            subject = '{} ({}) recommends you reading "{}"'.format(cd['name'], cd['email'],\
+             post.title)
+            message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, \
+            	cd['name'], cd['comments'])
             send_mail(subject, message, 'admin@myblog.com', [cd['to']])
             sent = True
     else:
